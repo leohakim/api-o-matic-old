@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=api_o_matic
+POSTGRES_USER=NOSdhiNXhxPQGzZGesshjzrrHHQOTUua
+POSTGRES_PASSWORD=LQad7p9rNqThCTdEGGYCyMhIOLNpXspORRIKYWag1B7a48jGiQRiMdZRNTu7gvR6
