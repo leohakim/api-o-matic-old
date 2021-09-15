@@ -1,7 +1,7 @@
 import pytest
 
+from api_o_matic.tests.users.factories import UserFactory
 from api_o_matic.users.models import User
-from api_o_matic.users.tests.factories import UserFactory
 
 
 @pytest.fixture(autouse=True)

@@ -1,15 +1,10 @@
 .ONESHELL:
 
-lint:
-	prospector
-
 mypy:
-	docker exec -ti mypy api_o_matic
+	docker exec -ti django mypy api_o_matic
 
 test:
-	python -m unittest
+	docker exec -ti django pytest
 
 cov:
-	coverage run -m unittest
-	coverage report
-	coverage html
+	docker exec -ti django coverage run -m pytest && docker exec -ti django coverage report -m

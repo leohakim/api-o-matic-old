@@ -8,9 +8,9 @@ from django.http import HttpRequest
 from django.test import RequestFactory
 from django.urls import reverse
 
+from api_o_matic.tests.users.factories import UserFactory
 from api_o_matic.users.forms import UserChangeForm
 from api_o_matic.users.models import User
-from api_o_matic.users.tests.factories import UserFactory
 from api_o_matic.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
