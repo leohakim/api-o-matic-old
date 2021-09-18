@@ -1,46 +1,27 @@
 @startuml
 
-class Bit {
-    last_update: datetime
-    value: Any
-    type: BitType
-    source: Source
-    created_by: User
+class Bit {}
+
+enum BitType {}
+
+Bit -left-> BitType
+
+class Source {}
+
+enum SourceType {
+    HTML
+    JSON
 }
+Source -right-> SourceType
 
-enum BitType {
-    string
-    number
-    date
-    datetime
-}
+Bit -right-> Source
 
-Bit o--> BitType
-
-class Source {
-    URL: URL
-    Resource: Resource
-    unique_id: string
-}
-
-enum Resource {
-    XPATH
-    json.path
-}
-Source o--> Resource
-
-Bit o--> Source
-
-class Byte {
-    name: string
-    user: User
-    bits: [Bit] 1..8
-    public: bool
-}
+class Byte {}
 
 class User {}
 
 User *--> "0..N" Byte
-Byte *--> "1..8" Bit
+User *--> "0..N" Bit
+Byte *--> "0..N" Bit
 
 @enduml
