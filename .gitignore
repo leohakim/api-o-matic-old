@@ -334,3 +334,6 @@ api_o_matic/media/
 .env
 .envs/*
 !.envs/.local/
+
+# Author private notes
+notes/
