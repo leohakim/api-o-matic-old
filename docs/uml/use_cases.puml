@@ -1,0 +1,24 @@
+@startuml use_cases
+left to right direction
+
+actor UserRegistered
+
+actor UserAnonymous
+
+usecase CreateReadUpdateDeleteBit
+usecase CreateReadUpdateDeleteByte
+usecase ReadPublicByte
+usecase ReadOwnPrivateByte
+usecase RegisterUser
+usecase Login
+
+
+UserRegistered --> Login
+UserRegistered --> CreateReadUpdateDeleteBit
+UserRegistered --> CreateReadUpdateDeleteByte
+UserRegistered --> ReadOwnPrivateByte
+UserRegistered --> ReadPublicByte
+
+UserAnonymous --> ReadPublicByte
+UserAnonymous --> RegisterUser
+@enduml
