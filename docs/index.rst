@@ -13,6 +13,7 @@ Welcome to Api-o-Matic's documentation!
    howto
    pycharm/configuration
    users
+   uml/analysis
 
 
 
