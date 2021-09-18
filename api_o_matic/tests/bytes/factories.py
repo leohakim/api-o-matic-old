@@ -1,4 +1,4 @@
-from factory import SubFactory
+from factory import Iterator, SubFactory
 from factory.django import DjangoModelFactory
 from faker import Faker
 
@@ -13,7 +13,7 @@ faker = Faker("bs_BA")
 class SourceFactory(DjangoModelFactory):
     url = faker.uri()
     description = faker.text
-    type_source = Source.TYPE_HTML
+    type_source = Iterator([Source.TYPE_HTML, Source.TYPE_JSON])
     created_by = SubFactory(UserFactory)
 
     class Meta:
@@ -23,7 +23,9 @@ class SourceFactory(DjangoModelFactory):
 
 class BitFactory(DjangoModelFactory):
     name = faker.name()
-    type_bit = Bit.TYPE_STRING
+    type_bit = Iterator(
+        [Bit.TYPE_STRING, Bit.TYPE_NUMBER, Bit.TYPE_DATE, Bit.TYPE_DATETIME]
+    )
     path = faker.address()
     value = faker.text()
     source = SubFactory(SourceFactory)
