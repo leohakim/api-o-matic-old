@@ -1,0 +1,59 @@
+@startuml
+
+class BaseModel {
+    created_by: User
+    created_at: datetime
+    updated_at: datetime
+}
+
+Byte -up-|> BaseModel
+Bit -up-|> BaseModel
+Source -up-|> BaseModel
+
+
+class Bit {
+    name: string
+    description: string
+    type: BitType
+    path: String
+    value: string
+    source: Source
+}
+
+enum BitType {
+    string
+    number
+    date
+    datetime
+}
+
+Bit -left-> BitType
+
+class Source {
+    URL: URL
+    description: string
+    Type: SourceType
+}
+
+enum SourceType {
+    HTML
+    JSON
+}
+Source -right-> SourceType
+
+Bit -right-> Source
+
+class Byte {
+    name: string
+    description: string
+    bits: [Bit]
+    public: bool
+}
+
+class User {}
+
+User *--> "0..N" Byte
+User *--> "0..N" Bit
+Byte *--> "0..N" Bit
+
+@enduml
