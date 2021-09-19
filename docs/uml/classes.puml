@@ -1,6 +1,6 @@
 @startuml
 
-class BaseModel {
+abstract class BaseModel {
     created_by: User
     created_at: datetime
     updated_at: datetime
