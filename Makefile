@@ -11,3 +11,6 @@ cov:
 
 docs:
 	docker exec -ti docs make apidocs
+
+migrations:
+	docker exec -ti django python manage.py makemigrations

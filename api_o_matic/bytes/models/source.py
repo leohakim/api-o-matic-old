@@ -17,7 +17,7 @@ class Source(BaseModel):
         (TYPE_JSON, "JSON"),
     )
 
-    id = UUIDField(primary_key=True, default=uuid.uuid4)
+    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = URLField(_("URL of Source"), blank=False)
     description = CharField(_("Description of Bit"), blank=True, max_length=255)
     type_source = CharField(

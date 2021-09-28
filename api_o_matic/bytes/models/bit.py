@@ -22,7 +22,7 @@ class Bit(BaseModel):
         (TYPE_DATETIME, "DateTime"),
     )
 
-    id = UUIDField(primary_key=True, default=uuid.uuid4)
+    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = CharField(_("Name of Bit"), blank=False, max_length=255)
     description = CharField(_("Description of Bit"), blank=True, max_length=255)
     type_bit = CharField(
