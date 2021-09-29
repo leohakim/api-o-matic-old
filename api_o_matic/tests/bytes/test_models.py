@@ -11,6 +11,12 @@ def test_bit_return_name(bit: Bit):
     assert bit.__str__() == f"{bit.name}"
 
 
+def test_bit_manager_active():
+    bits = Bit.objects.active()
+    for bit in bits:
+        assert bit.is_active
+
+
 def test_byte_return_name(byte: Byte):
     assert byte.__str__() == f"{byte.name}"
 
