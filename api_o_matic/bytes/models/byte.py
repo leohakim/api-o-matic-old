@@ -1,13 +1,15 @@
 import uuid
 
 from django.db.models import BooleanField, CharField, ManyToManyField, UUIDField
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from api_o_matic.bytes.models.base_model import BaseModel
 from api_o_matic.bytes.models.bit import Bit
+from api_o_matic.bytes.models.slugable import Slugable
 
 
-class Byte(BaseModel):
+class Byte(BaseModel, Slugable):
     """Byte model for Api-o-Matic"""
 
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -18,3 +20,6 @@ class Byte(BaseModel):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("byte_detail", kwargs={"slug": self.slug})  # new

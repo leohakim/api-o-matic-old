@@ -8,13 +8,14 @@ class BitAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
+        "value",
+        "source",
+        "is_active",
         "description",
         "type_bit",
         "path",
-        "value",
-        "source",
+        "updated_at",
         "created_at",
-        "is_active",
     )
     search_fields = ["name", "description"]
 
@@ -31,6 +32,7 @@ class ByteAdmin(admin.ModelAdmin):
         "is_active",
     )
     search_fields = ["name", "description"]
+    prepopulated_fields = {"slug": ("name",)}
 
     def show_bits(self, byte):
         return (
