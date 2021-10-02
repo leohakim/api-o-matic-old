@@ -1,17 +1,10 @@
 import uuid
 
-from django.db.models import PROTECT, CharField, ForeignKey, Manager, UUIDField
+from django.db.models import PROTECT, CharField, ForeignKey, UUIDField
 from django.utils.translation import gettext_lazy as _
 
 from api_o_matic.bytes.models.base_model import BaseModel
 from api_o_matic.bytes.models.source import Source
-
-
-class BitManager(Manager):
-    """Bit Manager for Api-o-Matic"""
-
-    def active(self):
-        return self.filter(is_active=True)
 
 
 class Bit(BaseModel):
@@ -38,7 +31,6 @@ class Bit(BaseModel):
     path = CharField(_("Path of Bit"), max_length=250, blank=False)
     value = CharField(_("Value of Bit"), max_length=250, blank=True)
     source = ForeignKey(Source, on_delete=PROTECT)
-    objects = BitManager()
 
     def __str__(self):
         return self.name
