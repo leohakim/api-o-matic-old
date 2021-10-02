@@ -14,3 +14,12 @@ docs:
 
 migrations:
 	docker exec -ti django python manage.py makemigrations
+
+migrate:
+	docker exec -ti django python manage.py migrate
+
+psql:
+	docker exec -ti postgres psql api_o_matic -U NOSdhiNXhxPQGzZGesshjzrrHHQOTUua
+
+superuser:
+	docker exec -ti django python manage.py createsuperuser

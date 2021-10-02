@@ -1,1 +1,9 @@
 {% extends "base.html" %}
+{% block content %}
+<h1>Ranking most visited Bytes:</h1>
+<ol>
+  {% for byte in most_visited_bytes %}
+  <li><a href="/{{ byte.created_by }}/{{ byte.name }}/">{{ byte.name }}</a></li>
+  {% endfor %}
+</ol>
+{% endblock content %}

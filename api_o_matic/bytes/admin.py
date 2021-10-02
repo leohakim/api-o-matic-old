@@ -32,6 +32,7 @@ class ByteAdmin(admin.ModelAdmin):
         "is_active",
     )
     search_fields = ["name", "description"]
+    prepopulated_fields = {"slug": ("name",)}
 
     def show_bits(self, byte):
         return (
