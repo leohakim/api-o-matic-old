@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>>{{ user }}</h1>
+<ul>
+  {% for byte in bytes %}
+  <li>
+    <h4><a href="/{{ byte.created_by }}/{{ byte.slug }}/">{{ byte.name }}<a/></h4>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

@@ -3,7 +3,14 @@
 <h1>Ranking most visited Bytes:</h1>
 <ol>
   {% for byte in most_visited_bytes %}
-  <li><a href="/{{ byte.created_by }}/{{ byte.name }}/">{{ byte.name }}</a></li>
+  <li><a href="/{{ byte.created_by }}/{{ byte.slug }}/">{{ byte.name }}</a></li>
+  {% endfor %}
+</ol>
+<hr>
+<h1>Ranking most active Users:</h1>
+<ol>
+  {% for user, bits in users.items %}
+  <li><a href="/{{ user }}/">{{ user }}</a> ({{bits}})</li>
   {% endfor %}
 </ol>
 {% endblock content %}
