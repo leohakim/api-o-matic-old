@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
 
 from api_o_matic.bytes.api.views import ByteViewSet
-from api_o_matic.bytes.views import HomeView, UserBytesView
+from api_o_matic.bytes.views import HomeView, UserBytesDetailView, UserBytesView
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
@@ -20,7 +20,8 @@ urlpatterns = [
     path("users/", include("api_o_matic.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("<slug:user>/<slug:byte>/", UserBytesView.as_view(), name="user-bytes"),
+    path("<slug:user>/", UserBytesView.as_view(), name="user-bytes"),
+    path("<slug:user>/<slug:byte>/", UserBytesDetailView.as_view(), name="user-bytes"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

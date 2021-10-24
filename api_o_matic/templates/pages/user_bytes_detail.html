@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>><a href="/{{user}}/">{{ user }}</a></h1>
+<h2>>{{ byte }}</h2>
+<ul>
+  {% for bit in bits %}
+  <li>
+    <h4>{{ bit.name }}: <b style="color: #2b542c">{{ bit.value }}</b></h4>
+    <span style="color:red">Updated at: {{ bit.updated_at|date:"Y-m-d H:i:s" }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

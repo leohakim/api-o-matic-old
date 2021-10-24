@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>>{{ user }}</h1>
-<h2>>{{ byte }}</h2>
 <ul>
-  {% for bit in bits %}
+  {% for byte in bytes %}
   <li>
-    <h4>{{ bit.name }}: {{ bit.value }}</h4>
-    <h5>Updated at: {{ bit.updated_at|date:"Y-m-d H:i:s" }}</h5>
+    <h4><a href="/{{ byte.created_by }}/{{ byte.slug }}/">{{ byte.name }}<a/></h4>
   </li>
   {% endfor %}
 </ul>

@@ -23,3 +23,17 @@ psql:
 
 superuser:
 	docker exec -ti django python manage.py createsuperuser
+
+up:
+	docker-compose -f local.yml up
+
+up-build-amd64:
+	export DOCKER_DEFAULT_PLATFORM=linux/amd64; \
+  	echo $$DOCKER_DEFAULT_PLATFORM;\
+	docker-compose -f local.yml up --build
+
+up-build:
+	docker-compose -f local.yml up --build
+
+down:
+	docker-compose -f local.yml down --remove-orphans
