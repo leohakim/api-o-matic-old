@@ -5,16 +5,22 @@ from api_o_matic.bytes.models import Bit, Byte, Source
 
 @admin.register(Bit)
 class BitAdmin(admin.ModelAdmin):
+    def time_seconds(self, obj):
+        return obj.updated_at.strftime("%d-%m-%y %H:%M:%S")
+
+    time_seconds.admin_order_field = "updated_at"
+    time_seconds.short_description = "Last Update"
+
     list_display = (
         "id",
         "name",
         "value",
+        "time_seconds",
         "source",
         "is_active",
         "description",
         "type_bit",
         "path",
-        "updated_at",
         "created_at",
     )
     search_fields = ["name", "description"]
